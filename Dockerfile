@@ -8,12 +8,15 @@ RUN apk update && apk add --update \
   stow \
   bash \
   yarn \
+  exa \
   git \
   python3 \
   cargo \
   neovim \
   ripgrep \
   zoxide \
+  libc6-compat \
+  kbd-bkeymaps \
   alpine-sdk
 
 RUN addgroup -S todd \
