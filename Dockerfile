@@ -15,6 +15,7 @@ RUN apk update && apk add --update \
   neovim \
   ripgrep \
   zoxide \
+  github-cli \
   libc6-compat \
   kbd-bkeymaps \
   alpine-sdk
