@@ -1,6 +1,7 @@
 FROM alpine:latest
 
 RUN apk update && apk add --update \
+  tzdata \
   zsh \
   zsh-vcs \
   npm \
@@ -30,6 +31,7 @@ ENV XDG_DATA_HOME=${XDG_DATA_HOME:-/home/todd/.local/share}
 
 COPY --chown=todd:todd ./entrypoint.sh /etc
 
+RUN cat '/usr/share/zoneinfo/America/New_York' > /etc/localtime
 RUN su -c "bash <(curl -s ${LV_PATH})" todd 
 RUN sed -i -e "s/bin\/ash/bin\/zsh/" /etc/passwd
 RUN sed -i 's/\r$//' etc/entrypoint.sh \
