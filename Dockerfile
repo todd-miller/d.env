@@ -30,7 +30,8 @@ ENV HOME=/home/todd
 ENV XDG_DATA_HOME=${XDG_DATA_HOME:-/home/todd/.local/share}
 
 COPY --chown=todd:todd ./entrypoint.sh /etc
-COPY --chown=todd:todd /c/users/mille/.ssh/id_rsa* /home/todd/
+COPY --chown=todd:todd ./ssh/id_rsa.pub /home/todd/
+COPY --chown=todd:todd ./shh/id_rsa /home/todd/
 
 RUN cat '/usr/share/zoneinfo/America/New_York' > /etc/localtime
 RUN su -c "bash <(curl -s ${LV_PATH})" todd 
