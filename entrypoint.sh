@@ -9,12 +9,16 @@ rm $HOME/.zshrc
 # clone tmux package manager & dotfiles
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/todd-miller/dotfiles
+git clone https://github.com/pyenv/pyenv ~/.pyenv
+
+# get missing package
+cargo install exa
 
 # symbolic link gen w/ stow
-stow -d $HOME/dotfiles/ lvim zsh z tmux
+stow -d $HOME/dotfiles/ lvim zsh z tmux nvim git
 
 # install pyenv
-curl https://pyenv.run | bash
+# curl https://pyenv.run | bash
 
 # set better tmux lang
 export LANG=en_US.UTF-8
